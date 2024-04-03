@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Sorter</title>
+
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #container {
+            padding: 20px;
+            border: 2px solid #bbb; /* Add border around the container */
+            border-radius: 10px;
+        }
+
+        label {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        input, button {
+            display: inline-block;
+            margin: 10px 40px 10px 0;
+        }
+
+        button {
+            margin-left: 10px;
+            background-color: rgb(199, 199, 163); /* Set the background color to yellow */
+            border: 2px solid #666; /* Add a border around the button */
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        strong {
+            display: block;
+            margin-top: 20px;
+        }
+
+        #sortedWords {
+            margin-left: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <label for="words">Words </label>
+        <input type="text" id="words" name="words">
+        <br>
+
+        <button onclick="sortWords()">Sort!</button>
+
+        <div id="sortedWords">
+            <strong>Sorted Words:</strong>
+            <p id="sortedWordsContent"></p>
+        </div>
+    </div>
+
+    <script>
+        function sortWords() {
+            // Get the input value and split it into an array of words
+            var inputWords = document.getElementById("words").value;
+            var wordsArray = inputWords.split(/\s+/);
+
+            // Sort the array alphabetically
+            var sortedArray = wordsArray.sort();
+
+            // Display the sorted words
+            var sortedWordsElement = document.getElementById("sortedWordsContent");
+            sortedWordsElement.textContent = sortedArray.join(', ');
+        }
+    </script>
+
+</body>
+</html>
